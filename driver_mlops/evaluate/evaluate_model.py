@@ -132,7 +132,7 @@ try:
                 )
             )
 
-        if (new_model_auc < production_model_auc):
+        if (new_model_auc > production_model_auc):
             print("New trained model performs better, "
                   "thus it should be registered")
         else:

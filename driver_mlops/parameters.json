@@ -17,7 +17,7 @@
     },
     "registration":
     {
-        "tags": ["mse"]
+        "tags": ["auc", "f1"]
     },
     "scoring":
     {
