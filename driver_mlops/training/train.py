@@ -66,7 +66,10 @@ def get_model_metrics(model, data):
 
     predictions = model.predict(valid_data.data)
     fpr, tpr, thresholds = metrics.roc_curve(valid_data.label, predictions)
-    model_metrics = {"auc": (metrics.auc(fpr, tpr))}
+    model_metrics = {
+        "auc": (metrics.auc(fpr, tpr)),
+        "f1": (metrics.f1_score(valid_data.label, (predictions > 0.5).astype("int")))
+    }
 
     return model_metrics
 
