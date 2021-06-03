@@ -70,14 +70,13 @@ def run(data, request_headers):
     # The HTTP 'traceparent' header may be set by the caller to implement
     # distributed tracing (per the W3C Trace Context proposed specification)
     # and can be used to correlate the request to external systems.
-    print(('{{"RequestId":"{0}", '
-           '"TraceParent":"{1}", '
-           '"NumberOfPredictions":{2}}}'
-           ).format(
-               request_headers.get("X-Ms-Request-Id", ""),
-               request_headers.get("Traceparent", ""),
-               len(result)
-    ))
+    info = {
+            "input": data,
+            "output": result.tolist(),
+            "RequestId": request_headers.get("X-Ms-Request-Id", ""),
+            "TraceParent": request_headers.get("Traceparent", "")
+            }
+    print(json.dumps(info))
 
     return {"result": result.tolist()}
 
