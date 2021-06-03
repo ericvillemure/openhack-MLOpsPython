@@ -37,7 +37,7 @@ variables:
   - name: AML_ENV_NAME
     value: driver_mlops_training_env
   - name: AML_ENV_TRAIN_CONDA_DEP_FILE
-    value: "conda_dependencies.yml"
+    value: "driver_mlops/conda_dependencies.yml"
   - name: AML_COMPUTE_CLUSTER_CPU_SKU
     value: STANDARD_DS2_V2
   - name: AML_COMPUTE_CLUSTER_NAME
